@@ -315,6 +315,7 @@ MonoBehaviour:
     m_Bits: 256
   groundCheck: {fileID: 373835140}
   groundCheckRadius: 0.1
+  gameController: {fileID: 1635480232}
 --- !u!61 &53014045
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -473,7 +474,6 @@ GameObject:
   m_Component:
   - component: {fileID: 122230199}
   - component: {fileID: 122230201}
-  - component: {fileID: 122230200}
   m_Layer: 8
   m_Name: Platform 5x1 (2)
   m_TagString: Untagged
@@ -500,19 +500,6 @@ Transform:
   m_Father: {fileID: 152933425}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &122230200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122230198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10c86b67855430549a1c5f39dec150f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platformDestructionPoint: {fileID: 0}
 --- !u!61 &122230201
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1216,7 +1203,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 549836569}
   distanceBetween: 1
   distanceBetweenMin: 0
-  distanceBetweenMax: 0.5
+  distanceBetweenMax: 0.4
   theObjectPools:
   - {fileID: 605946143}
   - {fileID: 1783723156}
@@ -1535,7 +1522,7 @@ GameObject:
   - component: {fileID: 675719716}
   m_Layer: 8
   m_Name: Catcher
-  m_TagString: Untagged
+  m_TagString: Death Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2157,7 +2144,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1550967516}
   - component: {fileID: 1550967515}
-  - component: {fileID: 1550967517}
   m_Layer: 8
   m_Name: Platform 5x1 (1)
   m_TagString: Untagged
@@ -2210,19 +2196,6 @@ Transform:
   m_Father: {fileID: 152933425}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1550967517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550967514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10c86b67855430549a1c5f39dec150f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platformDestructionPoint: {fileID: 0}
 --- !u!1 &1635480231
 GameObject:
   m_ObjectHideFlags: 0
@@ -2252,6 +2225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e437965100e896d499ba68913a94e568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformSpawner: {fileID: 425685999}
+  thePlayer: {fileID: 53014044}
 --- !u!4 &1635480233
 Transform:
   m_ObjectHideFlags: 0
@@ -2843,7 +2818,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1990964118}
   - component: {fileID: 1990964120}
-  - component: {fileID: 1990964119}
   m_Layer: 8
   m_Name: Platform 5x1 (3)
   m_TagString: Untagged
@@ -2870,19 +2844,6 @@ Transform:
   m_Father: {fileID: 152933425}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1990964119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990964117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10c86b67855430549a1c5f39dec150f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platformDestructionPoint: {fileID: 0}
 --- !u!61 &1990964120
 BoxCollider2D:
   m_ObjectHideFlags: 0

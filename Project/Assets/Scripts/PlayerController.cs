@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class PlayerController : MonoBehaviour
     public float speedMultiplier;
     public float speedIncreaseMilestone;
     private float speedMilestoneCount;
-
 
     public float jumpForce;
     public float jumpTime;
@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
 
     // private Collider2D myCollider;
     private Animator myAnimator;
+
+    public GameController gameController;
 
     void Start()
     {
@@ -79,4 +81,15 @@ public class PlayerController : MonoBehaviour
         myAnimator.SetFloat("Speed", rb.velocity.x);
         myAnimator.SetBool("Grounded", grounded);
     }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Death Box")
+        {
+            Debug.Log("Death by falling.");
+            gameController.RestartGame();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
 }
