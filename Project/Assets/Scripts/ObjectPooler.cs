@@ -21,7 +21,6 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-
     public GameObject GetPooledObject()
     {
         for (int i = 0; i < pooledObjects.Count; i++)
