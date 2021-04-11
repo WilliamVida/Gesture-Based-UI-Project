@@ -22,4 +22,9 @@ public class Score : MonoBehaviour
         scoreText.text = "Score: " + scoreCount.ToString("F0");
     }
 
+    public void AddScore(int scoreToAdd)
+    {
+        scoreCount += scoreToAdd;
+    }
+
 }

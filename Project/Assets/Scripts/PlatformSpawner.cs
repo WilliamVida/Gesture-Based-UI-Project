@@ -26,6 +26,9 @@ public class PlatformSpawner : MonoBehaviour
     public float maxHeightChange;
     private float heightChange;
 
+    private CoinSpawner coinSpawner;
+    public float coinSpawnChance;
+
     void Start()
     {
         // platformWidth = thePlatform.GetComponent<BoxCollider2D>().size.x;
@@ -38,6 +41,8 @@ public class PlatformSpawner : MonoBehaviour
 
         minHeight = transform.position.y;
         maxHeight = maxHeightPoint.position.y;
+
+        coinSpawner = FindObjectOfType<CoinSpawner>();
     }
 
     void Update()
@@ -67,6 +72,11 @@ public class PlatformSpawner : MonoBehaviour
             newPlatform.transform.position = transform.position;
             newPlatform.transform.rotation = transform.rotation;
             newPlatform.SetActive(true);
+
+            if (Random.Range(0f, 100f) < coinSpawnChance)
+            {
+                coinSpawner.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z));
+            }
 
             transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2), transform.position.y, transform.position.z);
         }
