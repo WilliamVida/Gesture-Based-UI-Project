@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<grammar xml:lang="en-US" root="game" tag-format="semantics/1.0" version="1.0"
+    xmlns="http://www.w3.org/2001/06/grammar">
+
+    <rule id="game">
+        <one-of>
+            <item>
+                <ruleref uri="#pause"></ruleref>
+            </item>
+            <item>
+                <ruleref uri="#move"></ruleref>
+            </item>
+        </one-of>
+    </rule>
+
+    <rule id="pause">
+        <one-of>
+            <item>pause</item>
+            <item>pause the game</item>
+        </one-of>
+    </rule>
+
+    <rule id="move">
+        <one-of>
+            <item>move</item>
+        </one-of>
+    </rule>
+
+</grammar>
