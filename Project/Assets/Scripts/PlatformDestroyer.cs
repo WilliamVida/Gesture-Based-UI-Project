@@ -5,19 +5,11 @@ using UnityEngine;
 public class PlatformDestroyer : MonoBehaviour
 {
 
-    public GameObject platformDestructionPoint;
-
-    void Start()
+    void OnCollisionEnter2D(Collision2D col)
     {
-        platformDestructionPoint = GameObject.Find("Platform Destruction Point");
-    }
-
-    void Update()
-    {
-        if (transform.position.x < platformDestructionPoint.transform.position.x)
+        if (col.gameObject.tag == "Platform")
         {
-            // Destroy(gameObject);
-            gameObject.SetActive(false);
+            Destroy(col.gameObject);
         }
     }
 
