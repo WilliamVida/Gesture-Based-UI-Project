@@ -10,19 +10,14 @@ public class PlayerController : MonoBehaviour
     public float speedMultiplier;
     public float speedIncreaseMilestone;
     private float speedMilestoneCount;
-
     public float jumpForce;
     public float jumpTime;
     private float jumpTimeCounter;
-
     private Rigidbody2D rb;
-
     public bool grounded;
     public LayerMask whatIsGround;
     public Transform groundCheck;
     public float groundCheckRadius;
-
-    // private Collider2D myCollider;
     private Animator myAnimator;
 
     public GameController gameController;
@@ -30,12 +25,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        // myCollider = GetComponent<Collider2D>();
         myAnimator = GetComponent<Animator>();
         jumpTimeCounter = jumpTime;
         speedMilestoneCount = speedIncreaseMilestone;
     }
 
+    // if speed is 0, then die.
     void Update()
     {
         // grounded = Physics2D.IsTouchingLayers(myCollider, whatIsGround);

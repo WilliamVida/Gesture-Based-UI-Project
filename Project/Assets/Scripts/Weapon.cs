@@ -9,9 +9,22 @@ public class Weapon : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
 
+    public GameObject muzzleFlash;
+    [Range(0, 5)]
+    public int framesToFlash = 1;
+    bool isFlashing = false;
+
+    void Start()
+    {
+        if (muzzleFlash != null)
+        {
+            muzzleFlash.SetActive(false);
+        }
+    }
+
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
         }
@@ -19,9 +32,29 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        // Instantiate(bulletPrefab, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 0.80f), gameObject.transform.rotation);
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        // Instantiate (bulletPrefab, firePoint.position, bulletPrefab.transform.rotation);
+        if (muzzleFlash != null && !isFlashing)
+        {
+            StartCoroutine(DoFlash());
+        }
+    }
+
+    // Muzzle flash from https://www.youtube.com/watch?v=VbTPD8brf2g&ab_channel=IndieNuggets.
+    IEnumerator DoFlash()
+    {
+
+        muzzleFlash.SetActive(true);
+        var framesFlashed = 0;
+        isFlashing = true;
+
+        while (framesFlashed <= framesToFlash)
+        {
+            framesFlashed++;
+            yield return null;
+        }
+
+        muzzleFlash.SetActive(false);
+        isFlashing = false;
     }
 
 }
