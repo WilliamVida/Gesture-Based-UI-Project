@@ -82,14 +82,4 @@ public class PlayerController : MonoBehaviour
         myAnimator.SetBool("Grounded", grounded);
     }
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Death Box")
-        {
-            Debug.Log("Death by falling.");
-            gameController.RestartGame();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
-
 }

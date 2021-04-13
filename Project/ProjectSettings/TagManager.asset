@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Death Box
   - Platform
+  - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX
