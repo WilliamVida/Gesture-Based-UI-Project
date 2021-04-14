@@ -5,26 +5,26 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
+    public int maxHealth = 100;
     public int health = 100;
-
+    public HealthBar healthBar;
+    // public Score score;
+    public int scorePoints;
 
     void Start()
     {
-
-    }
-
-    void Update()
-    {
-
+        health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     public void TakeDamage(int damage)
     {
         health -= damage;
-        // healthBar.SetHealth(health);
+        healthBar.SetHealth(health);
 
         if (health <= 0)
         {
+            Score.scoreCount += scorePoints;
             Die();
         }
     }

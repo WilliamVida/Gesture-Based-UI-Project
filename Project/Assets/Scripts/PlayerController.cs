@@ -85,6 +85,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("the player touched an obstacle.");
             // Destroy(gameObject);
         }
+        if (col.gameObject.tag == "Enemy")
+        {
+            Debug.Log("the player touched an enemy.");
+            // Destroy(gameObject);
+        }
     }
 
 }

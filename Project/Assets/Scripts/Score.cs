@@ -7,7 +7,7 @@ using TMPro;
 public class Score : MonoBehaviour
 {
 
-    public float scoreCount;
+    public static float scoreCount;
     public float pointsPerSeconds;
     public TextMeshProUGUI scoreText;
 
