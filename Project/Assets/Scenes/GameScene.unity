@@ -415,6 +415,55 @@ MonoBehaviour:
   bulletPrefab: {fileID: 934190589091613628, guid: fe8cd63d4a3ab7f4f89f771aee36b745, type: 3}
   muzzleFlash: {fileID: 219972353}
   framesToFlash: 3
+  fireRate: 0.3
+  maxAmmo: 10
+  currentAmmo: 0
+  reloadTime: 0.75
+--- !u!1 &128979043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 128979044}
+  - component: {fileID: 128979045}
+  m_Layer: 0
+  m_Name: Power Up Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &128979044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128979043}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 344504397}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &128979045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128979043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3d5d8f0247165428ae0eb98f203cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpPrefabs: {fileID: 0}
+  spawnRate: 8
 --- !u!1 &187670236
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,6 +798,7 @@ Transform:
   - {fileID: 1656324128}
   - {fileID: 1925757513}
   - {fileID: 1257855768}
+  - {fileID: 128979044}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -962,6 +1012,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6819879753773902215, guid: fd2a3a2000b58bf429ddbfb9c76cde67, type: 3}
   muzzleFlash: {fileID: 2067354291}
   framesToFlash: 3
+  fireRate: 0.15
+  maxAmmo: 25
+  currentAmmo: 0
+  reloadTime: 2.5
 --- !u!1 &476769534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1972,7 +2026,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb7200a4ab55b03419cf03de092a8c87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreCount: 0
   pointsPerSeconds: 10
   scoreText: {fileID: 1961620401}
 --- !u!1 &1656324126
