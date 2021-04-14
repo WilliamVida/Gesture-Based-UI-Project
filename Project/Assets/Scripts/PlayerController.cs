@@ -77,4 +77,14 @@ public class PlayerController : MonoBehaviour
         myAnimator.SetBool("Grounded", grounded);
     }
 
+    // If the player touches an obstacle then die.
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Obstacle")
+        {
+            Debug.Log("the player touched an obstacle.");
+            // Destroy(gameObject);
+        }
+    }
+
 }

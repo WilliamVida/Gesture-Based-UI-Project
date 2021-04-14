@@ -33,6 +33,7 @@ public class Weapon : MonoBehaviour
     void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
         if (muzzleFlash != null && !isFlashing)
         {
             StartCoroutine(DoFlash());

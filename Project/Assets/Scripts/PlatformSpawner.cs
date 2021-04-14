@@ -14,9 +14,12 @@ public class PlatformSpawner : MonoBehaviour
     public float distanceBetweenMin;
     public float distanceBetweenMax;
     public float distanceBetween;
+    public GameObject obstacles;
+    public float obstacleChance = 45;
     // private float minHeight;
     // public Transform maxHeightPoint;
     // private float maxHeight;
+    // private int numberOfPlatforms = 0;
 
     void Start()
     {
@@ -27,12 +30,11 @@ public class PlatformSpawner : MonoBehaviour
     private void GeneratePlatforms()
     {
         GameObject a = Instantiate(platformPrefab) as GameObject;
-        // a.transform.position = new Vector2(screenBounds.x * -2, Random.Range(-screenBounds.y, screenBounds.y));
+
+        // if (transform.position.x < spawnPoint.position.x && GameObject.FindGameObjectsWithTag("Player").Length <= 6)
         if (transform.position.x < spawnPoint.position.x)
         {
             distanceBetween = Random.Range(distanceBetweenMin, distanceBetweenMax);
-
-            // platformSelector = Random.Range(0, theObjectPools.Length);
 
             // heightChange = transform.position.y + Random.Range(maxHeightChange, -maxHeightChange);
 
@@ -46,18 +48,18 @@ public class PlatformSpawner : MonoBehaviour
             // }
 
             // transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2) + distanceBetween, heightChange, transform.position.z);
-            // a.transform.position = new Vector3(transform.position.x + distanceBetween, Random.Range(-screenBounds.y + 1, screenBounds.y - 1));
-            a.transform.position = new Vector3(transform.position.x + distanceBetween, Random.Range(-screenBounds.y + 1, screenBounds.y - 1));
+            a.transform.position = new Vector3(transform.position.x + distanceBetween, Random.Range(-screenBounds.y + 2, screenBounds.y - 3));
 
-            Instantiate(platformPrefab, transform.position, transform.rotation);
+            if (Random.Range(0f, 100f) < obstacleChance)
+            {
+                Debug.Log("chance");
+                Instantiate(obstacles, new Vector3(a.transform.position.x, a.transform.position.y + 1.486f, 0), transform.rotation);
+            }
 
+            // coins
+            // coinSpawner.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z));
 
-            // if (Random.Range(0f, 100f) < coinSpawnChance)
-            // {
-            //     coinSpawner.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z));
-            // }
-
-            // transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2), transform.position.y, transform.position.z);
+            // transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         }
     }
 

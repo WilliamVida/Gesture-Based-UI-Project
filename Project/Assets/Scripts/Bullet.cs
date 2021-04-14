@@ -20,6 +20,7 @@ public class Bullet : MonoBehaviour
         {
             Debug.Log("hit " + hitInfo.name);
             Enemy enemy = hitInfo.GetComponent<Enemy>();
+
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
