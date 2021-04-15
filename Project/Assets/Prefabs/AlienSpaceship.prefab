@@ -310,7 +310,7 @@ Transform:
   m_GameObject: {fileID: 4094318237621278065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.0008426, y: 3.82, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 634956023420000687}
   m_Father: {fileID: 0}
@@ -417,7 +417,6 @@ MonoBehaviour:
   maxHealth: 100
   health: 100
   healthBar: {fileID: 887710074593592420}
-  score: {fileID: 0}
   scorePoints: 100
 --- !u!1 &4168683266052945420
 GameObject:

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// from https://www.youtube.com/watch?v=AI8XNNRpTTw&ab_channel=AlexanderZotov.
+// From https://www.youtube.com/watch?v=AI8XNNRpTTw&ab_channel=AlexanderZotov.
 public class EnemySpawner : MonoBehaviour
 {
 
@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
         if (Time.time > nextSpawn)
         {
             nextSpawn = Time.time + spawnRate;
-            randomYPosition = Random.Range(0f, 3.8f);
+            randomYPosition = Random.Range(1.8f, 4f);
             whereToSpawn = new Vector2(transform.position.x, transform.position.y + randomYPosition);
             Instantiate(enemyPrefab, whereToSpawn, Quaternion.identity);
         }
