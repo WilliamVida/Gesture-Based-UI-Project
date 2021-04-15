@@ -23,8 +23,7 @@ public class ScorePoints : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             score.AddScore(scoreToGive);
-            gameObject.SetActive(false);
-            // Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 

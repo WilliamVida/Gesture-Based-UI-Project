@@ -11,6 +11,9 @@
             <item>
                 <ruleref uri="#jump"></ruleref>
             </item>
+            <item>
+                <ruleref uri="#reload"></ruleref>
+            </item>
         </one-of>
     </rule>
 
@@ -24,6 +27,12 @@
     <rule id="jump">
         <one-of>
             <item>jump</item>
+        </one-of>
+    </rule>
+
+    <rule id="reload">
+        <one-of>
+            <item>reload</item>
         </one-of>
     </rule>
 
