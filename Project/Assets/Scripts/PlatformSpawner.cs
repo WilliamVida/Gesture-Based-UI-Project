@@ -48,7 +48,7 @@ public class PlatformSpawner : MonoBehaviour
             // }
 
             // transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2) + distanceBetween, heightChange, transform.position.z);
-            a.transform.position = new Vector3(transform.position.x + distanceBetween + 8, Random.Range(-screenBounds.y + 2, screenBounds.y - 3));
+            a.transform.position = new Vector3(transform.position.x + distanceBetween + 15, Random.Range(-screenBounds.y + 1, screenBounds.y - 3));
 
             if (Random.Range(0f, 100f) < obstacleChance)
             {

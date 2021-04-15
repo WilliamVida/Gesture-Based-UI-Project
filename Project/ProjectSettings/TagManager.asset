@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Ground
   - Obstacle
+  - Bullet
+  - Power Up
   layers:
   - Default
   - TransparentFX

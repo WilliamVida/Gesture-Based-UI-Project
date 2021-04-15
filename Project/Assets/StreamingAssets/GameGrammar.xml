@@ -9,7 +9,7 @@
                 <ruleref uri="#pause"></ruleref>
             </item>
             <item>
-                <ruleref uri="#move"></ruleref>
+                <ruleref uri="#jump"></ruleref>
             </item>
         </one-of>
     </rule>
@@ -21,9 +21,9 @@
         </one-of>
     </rule>
 
-    <rule id="move">
+    <rule id="jump">
         <one-of>
-            <item>move</item>
+            <item>jump</item>
         </one-of>
     </rule>
 

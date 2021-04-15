@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius;
     private Animator myAnimator;
+    public ParticleSystem[] boosters;
 
     public GameController gameController;
 
@@ -70,7 +71,14 @@ public class PlayerController : MonoBehaviour
 
         if (grounded)
         {
+            boosters[0].Stop();
+            boosters[1].Stop();
             jumpTimeCounter = jumpTime;
+        }
+        else
+        {
+            boosters[0].Play();
+            boosters[1].Play();
         }
 
         myAnimator.SetFloat("Speed", rb.velocity.x);

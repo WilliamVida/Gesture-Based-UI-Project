@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 // From https://www.youtube.com/watch?v=wkKsl1Mfp5M&ab_channel=Brackeys.
 public class Weapon : MonoBehaviour
@@ -19,10 +20,11 @@ public class Weapon : MonoBehaviour
     public int currentAmmo;
     public float reloadTime = 1f;
     private bool isReloading = false;
-    // public text ammo remaining;
+    public TextMeshProUGUI ammoRemainingText;
 
     void Start()
     {
+        ammoRemainingText.text = "Ammo: " + 00;
         currentAmmo = maxAmmo;
 
         if (muzzleFlash != null)
@@ -33,6 +35,8 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
+        ammoRemainingText.text = "Ammo: " + currentAmmo;
+
         if (isReloading)
             return;
 

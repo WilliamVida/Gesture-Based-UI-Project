@@ -5,17 +5,12 @@ using UnityEngine;
 public class PowerUpSpawner : MonoBehaviour
 {
 
-    public GameObject powerUpPrefabs;
+    public GameObject[] powerUpPrefabs;
     float randomYPosition;
     Vector2 whereToSpawn;
     public float spawnRate = 8f;
     float nextSpawn = 0.0f;
-
-    // speed increase + invincibility
-    // invincibility
-    // special weapon
-    // increased damage
-    // larger bullet
+    public int randomPowerUp;
 
     void Start()
     {
@@ -27,9 +22,13 @@ public class PowerUpSpawner : MonoBehaviour
         if (Time.time > nextSpawn)
         {
             nextSpawn = Time.time + spawnRate;
-            randomYPosition = Random.Range(0f, 3.8f);
+            randomYPosition = Random.Range(-4f, 4f);
+
+            randomPowerUp = Random.Range(0, powerUpPrefabs.Length);
+            Debug.Log("randomPowerUp " + powerUpPrefabs[randomPowerUp].name);
+
             whereToSpawn = new Vector2(transform.position.x, transform.position.y + randomYPosition);
-            Instantiate(powerUpPrefabs, whereToSpawn, Quaternion.identity);
+            Instantiate(powerUpPrefabs[randomPowerUp], whereToSpawn, Quaternion.identity);
         }
     }
 
