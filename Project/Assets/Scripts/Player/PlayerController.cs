@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private Animator myAnimator;
     public ParticleSystem[] boosters;
     public GameController gameController;
+    private bool canDoubleJump;
 
     void Start()
     {
@@ -59,18 +60,23 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (grounded)
+            canDoubleJump = true;
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (jumpTimeCounter > 0)
+            if (grounded)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                jumpTimeCounter -= Time.deltaTime;
             }
-        }
-
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            jumpTimeCounter = 0;
+            else
+            {
+                if (canDoubleJump)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                    canDoubleJump = false;
+                }
+            }
         }
 
         if (grounded)

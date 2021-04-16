@@ -6,19 +6,21 @@ using UnityEngine;
 public class GroundObstacleSpawner : MonoBehaviour
 {
 
-    public GameObject obstaclePrefab;
+    public GameObject[] obstaclePrefabs;
     Vector2 whereToSpawn;
     public int obstacleChance = 30;
     public float spawnTime = 8f;
     float nextSpawn = 0.0f;
+    int randomObstacle;
 
     void Update()
     {
         if (Time.time > nextSpawn && Random.Range(0, 100) < obstacleChance)
         {
+            randomObstacle = Random.Range(0, obstaclePrefabs.Length);
             nextSpawn = Time.time + spawnTime;
             whereToSpawn = new Vector2(transform.position.x, transform.position.y);
-            Instantiate(obstaclePrefab, whereToSpawn, Quaternion.identity);
+            Instantiate(obstaclePrefabs[randomObstacle], whereToSpawn, Quaternion.identity);
         }
     }
 

@@ -31,6 +31,11 @@ public class Bullet : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        if (hitInfo.gameObject.tag == "Obstacle")
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnBecameInvisible()

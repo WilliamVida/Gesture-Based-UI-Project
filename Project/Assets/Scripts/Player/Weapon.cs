@@ -21,9 +21,11 @@ public class Weapon : MonoBehaviour
     public float reloadTime = 1f;
     public bool isReloading = false;
     public TextMeshProUGUI ammoRemainingText;
+    private AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         ammoRemainingText.text = "Ammo: " + 00;
         currentAmmo = maxAmmo;
 
@@ -63,6 +65,7 @@ public class Weapon : MonoBehaviour
     // Fire rate from https://answers.unity.com/comments/1720017/view.html.
     IEnumerator Shoot()
     {
+        audioSource.Play();
         canFire = false;
         currentAmmo--;
         var shot = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
