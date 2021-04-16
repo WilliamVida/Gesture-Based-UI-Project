@@ -90,7 +90,7 @@ public class GrammarController : MonoBehaviour
             case "get extra ammunition":
             case "get the extra ammo power up":
             case "get the extra ammunition power up":
-                GameObject moreAmmoObject = GameObject.Find("Increased Ammo Power Up");
+                GameObject moreAmmoObject = GameObject.Find("Increased Ammo Power Up(Clone)");
                 IncreasedAmmoPowerUp increasedAmmoPowerUp;
                 if (moreAmmoObject != null)
                 {
@@ -107,7 +107,7 @@ public class GrammarController : MonoBehaviour
             case "get the fire rate":
             case "use the fire rate power up":
             case "get the fire rate power up":
-                GameObject fireRateObject = GameObject.Find("Increased Fire Rate Power Up");
+                GameObject fireRateObject = GameObject.Find("Increased Fire Rate Power Up(Clone)");
                 IncreasedFireRatePowerUp increasedFireRatePowerUp;
                 if (fireRateObject != null)
                 {
@@ -123,10 +123,11 @@ public class GrammarController : MonoBehaviour
             case "get more speed":
             case "use the more speed power up":
             case "get the more speed power up":
-                GameObject moreSpeedObject = GameObject.Find("Increased Speed Power Up");
+                GameObject moreSpeedObject = GameObject.Find("Increased Speed Power Up(Clone)");
                 IncreasedSpeedPowerUp increasedSpeedPowerUp;
                 if (moreSpeedObject != null)
                 {
+                    Debug.Log("test");
                     increasedSpeedPowerUp = moreSpeedObject.GetComponent<IncreasedSpeedPowerUp>();
                     if (increasedSpeedPowerUp.isInCamera)
                     {
