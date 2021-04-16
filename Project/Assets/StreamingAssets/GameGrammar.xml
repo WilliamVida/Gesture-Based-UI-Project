@@ -8,11 +8,25 @@
             <item>
                 <ruleref uri="#pause"></ruleref>
             </item>
+
             <item>
                 <ruleref uri="#jump"></ruleref>
             </item>
+
+            <item>
+                <ruleref uri="#weaponone"></ruleref>
+            </item>
+
+            <item>
+                <ruleref uri="#weapontwo"></ruleref>
+            </item>
+
             <item>
                 <ruleref uri="#reload"></ruleref>
+            </item>
+
+            <item>
+                <ruleref uri="#powerup"></ruleref>
             </item>
         </one-of>
     </rule>
@@ -30,9 +44,35 @@
         </one-of>
     </rule>
 
+    <rule id="weaponone">
+        <one-of>
+            <item>weapon one</item>
+            <item>main weapon</item>
+            <item>assault rifle</item>
+            <item>rifle</item>
+        </one-of>
+    </rule>
+
+    <rule id="weapontwo">
+        <one-of>
+            <item>weapon two</item>
+            <item>secondary weapon</item>
+            <item>pistol</item>
+        </one-of>
+    </rule>
+
     <rule id="reload">
         <one-of>
             <item>reload</item>
+            <item>reload now</item>
+            <item>reload the weapon</item>
+            <item>reload the gun</item>
+        </one-of>
+    </rule>
+
+    <rule id="power up">
+        <one-of>
+            <item>power up</item>
         </one-of>
     </rule>
 

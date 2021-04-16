@@ -8,6 +8,11 @@ public class IncreasedAmmoPowerUp : MonoBehaviour
 
     public int multiplier = 2;
 
+    void Start()
+    {
+        Destroy(gameObject, 8f);
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

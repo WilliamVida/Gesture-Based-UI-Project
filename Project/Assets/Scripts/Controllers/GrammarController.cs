@@ -24,7 +24,6 @@ public class GrammarController : MonoBehaviour
         if (gr.IsRunning) Debug.Log("Recogniser running.");
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -32,13 +31,47 @@ public class GrammarController : MonoBehaviour
 
     private void PhraseRecogniser()
     {
-        Weapon weapon = gameObject.GetComponent<Weapon>();
+        GameObject weaponHolder = GameObject.Find("Weapon Holder");
+        WeaponSwitching weaponSwitching = weaponHolder.GetComponent<WeaponSwitching>();
+        Weapon weapon = weaponHolder.GetComponentInChildren<Weapon>();
 
         switch (spokenPhrase)
         {
-            case "jump":
-                Debug.Log("switch jump");
+            case "pause":
+            case "pause the game":
                 break;
+            case "jump":
+                break;
+            case "weapon one":
+            case "main weapon":
+            case "fireball":
+            case "primary weapon":
+            case "assault rifle":
+            case "rifle":
+                weaponSwitching.selectedWeapon = 0;
+                // To avoid an issue.
+                weapon.canFire = true;
+                weaponSwitching.SelectWeapon();
+                break;
+            case "weapon two":
+            case "secondary weapon":
+            case "purple pearl":
+            case "pistol":
+                weaponSwitching.selectedWeapon = 1;
+                // To avoid an issue.
+                weapon.canFire = true;
+                weaponSwitching.SelectWeapon();
+                break;
+            case "reload":
+            case "reload now":
+            case "reload the weapon":
+            case "reload the gun":
+                Debug.Log("reload voice");
+                StartCoroutine(weapon.Reload());
+                break;
+            // case "power up":
+            //     Debug.Log("power up voice");
+            //     break;
         }
     }
 
@@ -53,7 +86,7 @@ public class GrammarController : MonoBehaviour
         {
             string valueString = meaning.values[0].Trim();
             message.Append("Value: " + valueString + " ");
-            spokenPhraseText.text = "Spoken word(s): " + valueString;
+            spokenPhraseText.text = "Spoken Phrase: " + valueString;
             spokenPhrase = valueString;
         }
 

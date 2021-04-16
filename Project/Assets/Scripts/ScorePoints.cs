@@ -11,6 +11,7 @@ public class ScorePoints : MonoBehaviour
     void Start()
     {
         score = FindObjectOfType<Score>();
+        Destroy(gameObject, 8f);
     }
 
     void Update()

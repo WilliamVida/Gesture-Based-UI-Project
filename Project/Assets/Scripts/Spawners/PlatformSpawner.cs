@@ -28,11 +28,10 @@ public class PlatformSpawner : MonoBehaviour
     {
         GameObject a = Instantiate(platformPrefab) as GameObject;
 
-        // if (transform.position.x < spawnPoint.position.x && GameObject.FindGameObjectsWithTag("Player").Length <= 6)
         if (transform.position.x < spawnPoint.position.x)
         {
             distanceBetween = Random.Range(distanceBetweenMin, distanceBetweenMax);
-            a.transform.position = new Vector3(transform.position.x + distanceBetween + 15, Random.Range(-screenBounds.y + 1, screenBounds.y - 3));
+            a.transform.position = new Vector3(transform.position.x + distanceBetween + 15, Random.Range(-screenBounds.y + 2, screenBounds.y - 2));
 
             if (Random.Range(0f, 100f) < obstacleChance)
             {

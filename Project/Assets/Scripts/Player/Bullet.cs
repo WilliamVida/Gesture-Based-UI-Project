@@ -31,12 +31,6 @@ public class Bullet : MonoBehaviour
 
             Destroy(gameObject);
         }
-
-        if (hitInfo.gameObject.tag == "Ground")
-        {
-            Debug.Log("hit " + hitInfo.name);
-            Destroy(gameObject);
-        }
     }
 
     void OnBecameInvisible()

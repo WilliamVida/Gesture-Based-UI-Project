@@ -14,12 +14,12 @@ public class Weapon : MonoBehaviour
     [Range(0, 5)]
     public int framesToFlash = 1;
     bool isFlashing = false;
-    private bool canFire = true;
+    public bool canFire = true;
     public float fireRate = 0.4f;
     public int maxAmmo = 10;
     public int currentAmmo;
     public float reloadTime = 1f;
-    private bool isReloading = false;
+    public bool isReloading = false;
     public TextMeshProUGUI ammoRemainingText;
 
     void Start()
@@ -37,8 +37,9 @@ public class Weapon : MonoBehaviour
     {
         ammoRemainingText.text = "Ammo: " + currentAmmo;
 
-        if (isReloading){
-         ammoRemainingText.text = "Reloading";
+        if (isReloading)
+        {
+            ammoRemainingText.text = "Reloading";
             return;
         }
 
@@ -75,8 +76,8 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    // Weapon reloading form https://www.youtube.com/watch?v=kAx5g9V5bcM&ab_channel=Brackeys.
-    IEnumerator Reload()
+    // Weapon reloading from https://www.youtube.com/watch?v=kAx5g9V5bcM&ab_channel=Brackeys.
+    public IEnumerator Reload()
     {
         isReloading = true;
 

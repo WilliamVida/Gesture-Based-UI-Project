@@ -417,7 +417,7 @@ MonoBehaviour:
   maxHealth: 100
   health: 100
   healthBar: {fileID: 887710074593592420}
-  scorePoints: 100
+  scorePoints: 50
   deathEffect: {fileID: 1540463119751007000, guid: 0ed2c77ee20487d489792f2fe004000c, type: 3}
 --- !u!1 &4168683266052945420
 GameObject:

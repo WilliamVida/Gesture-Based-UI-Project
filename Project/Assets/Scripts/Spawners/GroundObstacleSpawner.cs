@@ -8,12 +8,16 @@ public class GroundObstacleSpawner : MonoBehaviour
 
     public GameObject obstaclePrefab;
     Vector2 whereToSpawn;
-    public float obstacleChance = 30;
+    public int obstacleChance = 30;
+    public float spawnTime = 8f;
+    float nextSpawn = 0.0f;
 
     void Update()
     {
-        if (Random.Range(0f, 100f) < obstacleChance)
+        if (Time.time > nextSpawn && Random.Range(0, 100) < obstacleChance)
         {
+            nextSpawn = Time.time + spawnTime;
+            whereToSpawn = new Vector2(transform.position.x, transform.position.y);
             Instantiate(obstaclePrefab, whereToSpawn, Quaternion.identity);
         }
     }

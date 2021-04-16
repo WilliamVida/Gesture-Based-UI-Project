@@ -50,7 +50,7 @@ public class WeaponSwitching : MonoBehaviour
         }
     }
 
-    void SelectWeapon()
+    public void SelectWeapon()
     {
         int i = 0;
 
