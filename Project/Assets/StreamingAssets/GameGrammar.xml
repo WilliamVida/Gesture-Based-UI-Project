@@ -10,10 +10,6 @@
             </item>
 
             <item>
-                <ruleref uri="#jump"></ruleref>
-            </item>
-
-            <item>
                 <ruleref uri="#weaponone"></ruleref>
             </item>
 
@@ -25,9 +21,17 @@
                 <ruleref uri="#reload"></ruleref>
             </item>
 
-            <!-- <item>
-                <ruleref uri="#powerup"></ruleref>
-            </item> -->
+            <item>
+                <ruleref uri="#moreammopowerup"></ruleref>
+            </item>
+
+            <item>
+                <ruleref uri="#fireratepowerup"></ruleref>
+            </item>
+
+            <item>
+                <ruleref uri="#morespeedpowerup"></ruleref>
+            </item>
         </one-of>
     </rule>
 
@@ -35,12 +39,6 @@
         <one-of>
             <item>pause</item>
             <item>pause the game</item>
-        </one-of>
-    </rule>
-
-    <rule id="jump">
-        <one-of>
-            <item>jump</item>
         </one-of>
     </rule>
 
@@ -70,10 +68,47 @@
         </one-of>
     </rule>
 
-    <!--    <rule id="power up">
+    <rule id="moreammopowerup">
         <one-of>
-            <item>power up</item>
+            <item>more ammo</item>
+            <item>more ammo power up</item>
+            <item>more ammunition</item>
+            <item>more ammunition power up</item>
+            <item>extra ammo</item>
+            <item>extra ammunition</item>
+            <item>extra ammo power up</item>
+            <item>extra ammunition power up</item>
+            <item>get more ammo</item>
+            <item>get more ammunition</item>
+            <item>get the more ammo power up</item>
+            <item>get the more ammunition power up</item>
+            <item>get extra ammo</item>
+            <item>get extra ammunition</item>
+            <item>get the extra ammo power up</item>
+            <item>get the extra ammunition power up</item>
         </one-of>
-    </rule> -->
+    </rule>
+
+    <rule id="fireratepowerup">
+        <one-of>
+            <item>fire rate</item>
+            <item>more fire rate</item>
+            <item>fire rate power up</item>
+            <item>get the fire rate</item>
+            <item>use the fire rate power up</item>
+            <item>get the fire rate power up</item>
+        </one-of>
+    </rule>
+
+    <rule id="morespeedpowerup">
+        <one-of>
+            <item>more speed</item>
+            <item>more speed power up</item>
+            <item>get more speed</item>
+            <item>use the more speed power up</item>
+            <item>get the more speed power up</item>
+        </one-of>
+    </rule>
+
 
 </grammar>

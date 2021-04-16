@@ -8,6 +8,7 @@ public class IncreasedFireRatePowerUp : MonoBehaviour
 
     public int multiplier = 2;
     public float duration = 10f;
+    public bool isInCamera = false;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -31,6 +32,16 @@ public class IncreasedFireRatePowerUp : MonoBehaviour
         weapon.fireRate *= multiplier;
         weapon.reloadTime *= multiplier;
         Destroy(gameObject);
+    }
+
+    void OnBecameInvisible()
+    {
+        isInCamera = false;
+    }
+
+    void OnBecameVisible()
+    {
+        isInCamera = true;
     }
 
 }

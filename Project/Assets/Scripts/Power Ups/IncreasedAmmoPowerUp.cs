@@ -7,6 +7,7 @@ public class IncreasedAmmoPowerUp : MonoBehaviour
 {
 
     public int multiplier = 2;
+    public bool isInCamera = false;
 
     void Start()
     {
@@ -26,6 +27,16 @@ public class IncreasedAmmoPowerUp : MonoBehaviour
         Weapon weapon = player.GetComponentInChildren<Weapon>();
         weapon.currentAmmo = (weapon.maxAmmo * multiplier);
         Destroy(gameObject);
+    }
+
+    void OnBecameInvisible()
+    {
+        isInCamera = false;
+    }
+
+    void OnBecameVisible()
+    {
+        isInCamera = true;
     }
 
 }

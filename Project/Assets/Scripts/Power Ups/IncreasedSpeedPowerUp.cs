@@ -8,6 +8,7 @@ public class IncreasedSpeedPowerUp : MonoBehaviour
 
     public int multiplier = 5;
     public float duration = 10f;
+    public bool isInCamera = false;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -34,6 +35,16 @@ public class IncreasedSpeedPowerUp : MonoBehaviour
         playerController.moveSpeed /= multiplier;
         score.pointsPerSeconds /= multiplier;
         Destroy(gameObject);
+    }
+
+    void OnBecameInvisible()
+    {
+        isInCamera = false;
+    }
+
+    void OnBecameVisible()
+    {
+        isInCamera = true;
     }
 
 }

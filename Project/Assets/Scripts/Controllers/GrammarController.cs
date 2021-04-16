@@ -14,6 +14,7 @@ public class GrammarController : MonoBehaviour
     private string spokenPhrase = "";
     public TextMeshProUGUI spokenPhraseText;
     public PauseMenu pauseMenu;
+    public PlayerController playerController;
 
     void Start()
     {
@@ -47,14 +48,10 @@ public class GrammarController : MonoBehaviour
         {
             case "pause":
             case "pause the game":
-                // gr.Stop();
                 pauseMenu.Pause();
-                break;
-            case "jump":
                 break;
             case "weapon one":
             case "main weapon":
-            case "fireball":
             case "primary weapon":
             case "assault rifle":
             case "rifle":
@@ -65,7 +62,6 @@ public class GrammarController : MonoBehaviour
                 break;
             case "weapon two":
             case "secondary weapon":
-            case "purple pearl":
             case "pistol":
                 weaponSwitching.selectedWeapon = 1;
                 // To avoid an issue.
@@ -76,11 +72,67 @@ public class GrammarController : MonoBehaviour
             case "reload now":
             case "reload the weapon":
             case "reload the gun":
-                Debug.Log("reload voice");
                 StartCoroutine(weapon.Reload());
                 break;
-            case "power up":
-                Debug.Log("power up voice");
+            case "more ammo":
+            case "more ammo power up":
+            case "more ammunition":
+            case "more ammunition power up":
+            case "extra ammo":
+            case "extra ammunition":
+            case "extra ammo power up":
+            case "extra ammunition power up":
+            case "get more ammo":
+            case "get more ammunition":
+            case "get the more ammo power up":
+            case "get the more ammunition power up":
+            case "get extra ammo":
+            case "get extra ammunition":
+            case "get the extra ammo power up":
+            case "get the extra ammunition power up":
+                GameObject moreAmmoObject = GameObject.Find("Increased Ammo Power Up");
+                IncreasedAmmoPowerUp increasedAmmoPowerUp;
+                if (moreAmmoObject != null)
+                {
+                    increasedAmmoPowerUp = moreAmmoObject.GetComponent<IncreasedAmmoPowerUp>();
+                    if (increasedAmmoPowerUp.isInCamera)
+                    {
+                        moreAmmoObject.transform.position = new Vector2(playerController.transform.position.x, playerController.transform.position.y);
+                    }
+                }
+                break;
+            case "fire rate":
+            case "more fire rate":
+            case "fire rate power up":
+            case "get the fire rate":
+            case "use the fire rate power up":
+            case "get the fire rate power up":
+                GameObject fireRateObject = GameObject.Find("Increased Fire Rate Power Up");
+                IncreasedFireRatePowerUp increasedFireRatePowerUp;
+                if (fireRateObject != null)
+                {
+                    increasedFireRatePowerUp = fireRateObject.GetComponent<IncreasedFireRatePowerUp>();
+                    if (increasedFireRatePowerUp.isInCamera)
+                    {
+                        fireRateObject.transform.position = new Vector2(playerController.transform.position.x, playerController.transform.position.y);
+                    }
+                }
+                break;
+            case "more speed":
+            case "more speed power up":
+            case "get more speed":
+            case "use the more speed power up":
+            case "get the more speed power up":
+                GameObject moreSpeedObject = GameObject.Find("Increased Speed Power Up");
+                IncreasedSpeedPowerUp increasedSpeedPowerUp;
+                if (moreSpeedObject != null)
+                {
+                    increasedSpeedPowerUp = moreSpeedObject.GetComponent<IncreasedSpeedPowerUp>();
+                    if (increasedSpeedPowerUp.isInCamera)
+                    {
+                        moreSpeedObject.transform.position = new Vector2(playerController.transform.position.x, playerController.transform.position.y);
+                    }
+                }
                 break;
         }
     }
