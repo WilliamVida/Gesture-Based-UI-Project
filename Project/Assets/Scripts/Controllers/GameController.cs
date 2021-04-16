@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
 
     public PlayerController thePlayer;
     private Vector3 playerStartPoint;
+    public GameObject gameOverMenu;
 
     void Start()
     {
@@ -16,20 +17,11 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-
-    }
-
-    public void RestartGame()
-    {
-        StartCoroutine("RestartGameCoroutine");
-    }
-
-    public IEnumerator RestartGameCoroutine()
-    {
-        thePlayer.gameObject.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
-        thePlayer.transform.position = playerStartPoint;
-        thePlayer.gameObject.SetActive(true);
+        if (GameObject.FindGameObjectsWithTag("Player").Length == 0)
+        {
+            Time.timeScale = 0f;
+            gameOverMenu.SetActive(true);
+        }
     }
 
 }

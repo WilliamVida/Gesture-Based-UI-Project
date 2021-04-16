@@ -20,21 +20,25 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius;
     private Animator myAnimator;
     public ParticleSystem[] boosters;
-
     public GameController gameController;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        gameObject.SetActive(true);
         myAnimator = GetComponent<Animator>();
         jumpTimeCounter = jumpTime;
         speedMilestoneCount = speedIncreaseMilestone;
     }
 
-    // if speed is 0, then die.
     void Update()
     {
-        // grounded = Physics2D.IsTouchingLayers(myCollider, whatIsGround);
+        // If the player's speed is 0, then die.
+        // if (rb.velocity.magnitude == 0f)
+        // {
+        //     Destroy(gameObject);
+        // }
+
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
         if (transform.position.x > speedMilestoneCount)
@@ -90,13 +94,12 @@ public class PlayerController : MonoBehaviour
     {
         if (col.gameObject.tag == "Obstacle")
         {
-            Debug.Log("the player touched an obstacle.");
-            // Destroy(gameObject);
+            Destroy(gameObject);
         }
+
         if (col.gameObject.tag == "Enemy")
         {
-            Debug.Log("the player touched an enemy.");
-            // Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 

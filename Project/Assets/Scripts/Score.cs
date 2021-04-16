@@ -13,6 +13,7 @@ public class Score : MonoBehaviour
 
     void Start()
     {
+        scoreCount = 0;
         scoreText.text = "Score: " + 0000;
     }
 
