@@ -13,6 +13,7 @@ public class GrammarController : MonoBehaviour
     private GrammarRecognizer gr;
     private string spokenPhrase = "";
     public TextMeshProUGUI spokenPhraseText;
+    public PauseMenu pauseMenu;
 
     void Start()
     {
@@ -26,7 +27,14 @@ public class GrammarController : MonoBehaviour
 
     void Update()
     {
-
+        if (PauseMenu.gameIsPaused)
+        {
+            // gr.Stop();
+        }
+        else
+        {
+            // gr.Start();
+        }
     }
 
     private void PhraseRecogniser()
@@ -39,6 +47,8 @@ public class GrammarController : MonoBehaviour
         {
             case "pause":
             case "pause the game":
+                // gr.Stop();
+                pauseMenu.Pause();
                 break;
             case "jump":
                 break;
@@ -69,9 +79,9 @@ public class GrammarController : MonoBehaviour
                 Debug.Log("reload voice");
                 StartCoroutine(weapon.Reload());
                 break;
-            // case "power up":
-            //     Debug.Log("power up voice");
-            //     break;
+            case "power up":
+                Debug.Log("power up voice");
+                break;
         }
     }
 

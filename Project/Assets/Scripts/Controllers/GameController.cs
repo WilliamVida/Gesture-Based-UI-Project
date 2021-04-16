@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         playerStartPoint = thePlayer.transform.position;
     }
 

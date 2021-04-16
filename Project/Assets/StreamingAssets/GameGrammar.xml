@@ -25,9 +25,9 @@
                 <ruleref uri="#reload"></ruleref>
             </item>
 
-            <item>
+            <!-- <item>
                 <ruleref uri="#powerup"></ruleref>
-            </item>
+            </item> -->
         </one-of>
     </rule>
 
@@ -70,10 +70,10 @@
         </one-of>
     </rule>
 
-    <rule id="power up">
+    <!--    <rule id="power up">
         <one-of>
             <item>power up</item>
         </one-of>
-    </rule>
+    </rule> -->
 
 </grammar>
