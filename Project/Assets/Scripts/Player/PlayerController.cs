@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
 
+    // Declare variables.
     public float moveSpeed;
     public float speedMultiplier;
     public float speedIncreaseMilestone;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public GameController gameController;
     private bool canDoubleJump;
 
+    // Initialise.
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,24 +36,19 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // If the player's speed is 0, then die.
-        // if (rb.velocity.magnitude == 0f)
-        // {
-        //     Destroy(gameObject);
-        // }
-
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
+        // Speed increase after a certain distance.
         if (transform.position.x > speedMilestoneCount)
         {
             speedMilestoneCount += speedIncreaseMilestone;
-
             speedIncreaseMilestone = speedIncreaseMilestone * speedMultiplier;
             moveSpeed = moveSpeed * speedMultiplier;
         }
 
         rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
 
+        // To jump.
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (grounded)
@@ -63,6 +60,7 @@ public class PlayerController : MonoBehaviour
         if (grounded)
             canDoubleJump = true;
 
+        // Check if the player can double jump.
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (grounded)
@@ -79,6 +77,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        // If the player is grounded then the boosters are off or else the boosters are on.
         if (grounded)
         {
             boosters[0].Stop();
@@ -91,6 +90,7 @@ public class PlayerController : MonoBehaviour
             boosters[1].Play();
         }
 
+        // For the player animator.
         myAnimator.SetFloat("Speed", rb.velocity.x);
         myAnimator.SetBool("Grounded", grounded);
     }

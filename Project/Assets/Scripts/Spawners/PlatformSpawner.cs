@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlatformSpawner : MonoBehaviour
 {
 
+    // Declare variables.
     public GameObject[] platformPrefabs;
     public GameObject coinPrefab;
     public float respawnTime = 1.0f;
@@ -19,6 +20,7 @@ public class PlatformSpawner : MonoBehaviour
     public float obstacleChance = 45;
     public int randomPlatform;
 
+    // Initialise.
     void Start()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
@@ -33,8 +35,9 @@ public class PlatformSpawner : MonoBehaviour
         if (transform.position.x < spawnPoint.position.x)
         {
             distanceBetween = Random.Range(distanceBetweenMin, distanceBetweenMax);
-            a.transform.position = new Vector3(transform.position.x + distanceBetween + 15, Random.Range(-screenBounds.y + 2, screenBounds.y - 2));
+            a.transform.position = new Vector3(transform.position.x + distanceBetween + 15, Random.Range(-screenBounds.y + 2.2f, screenBounds.y - 2));
 
+            // Chance to spawn an obstacle or a coin.
             if (Random.Range(0f, 100f) < obstacleChance)
             {
                 Instantiate(obstacles, new Vector3(a.transform.position.x, a.transform.position.y + 0.877692f, 0), transform.rotation);

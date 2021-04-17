@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Grammar loaded!");
         gr.OnPhraseRecognized += GR_OnPhraseRecognized;
         gr.Start();
-        if (gr.IsRunning) Debug.Log("Recogniser running.");
+        if (gr.IsRunning) Debug.Log("Main menu grammar recogniser is running.");
     }
 
     // Check if a phrase is recognised.
@@ -66,25 +66,25 @@ public class MainMenu : MonoBehaviour
             case "play the game":
             case "click play":
             case "click the play button":
-                Invoke("PlayGame", 1);
+                PlayGame();
                 break;
             case "instructions":
             case "go to instructions":
             case "go to the instructions menu":
             case "click the instructions button":
-                Invoke("InstructionsButton", 1);
+                InstructionsButton();
                 break;
             case "back":
             case "go back":
             case "back to the main menu":
             case "click the back button":
-                Invoke("BackButton", 1);
+                BackButton();
                 break;
             case "quit":
             case "quit the game":
             case "click the quit button":
             case "click quit":
-                Invoke("QuitButton", 1);
+                QuitButton();
                 break;
         }
     }
@@ -102,6 +102,7 @@ public class MainMenu : MonoBehaviour
     // Method to play the game.
     public void PlayGame()
     {
+        gr.Stop();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

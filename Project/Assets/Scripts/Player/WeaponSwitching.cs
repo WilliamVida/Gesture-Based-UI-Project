@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// https://www.youtube.com/watch?v=Dn_BUIVdAPg&ab_channel=Brackeys
+// From https://www.youtube.com/watch?v=Dn_BUIVdAPg&ab_channel=Brackeys.
 public class WeaponSwitching : MonoBehaviour
 {
 
+    // Declare variables.
     public int selectedWeapon = 0;
 
+    // Initialise.
     void Start()
     {
         SelectWeapon();

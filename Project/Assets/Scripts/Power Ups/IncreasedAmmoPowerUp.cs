@@ -6,14 +6,17 @@ using UnityEngine;
 public class IncreasedAmmoPowerUp : MonoBehaviour
 {
 
+    // Declare variables.
     public int multiplier = 2;
     public bool isInCamera = false;
 
+    // Initialise.
     void Start()
     {
         Destroy(gameObject, 8f);
     }
 
+    // If the power up touches the player.
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -22,6 +25,7 @@ public class IncreasedAmmoPowerUp : MonoBehaviour
         }
     }
 
+    // Apply the effects.
     void PickUp(Collider2D player)
     {
         Weapon weapon = player.GetComponentInChildren<Weapon>();
@@ -29,6 +33,7 @@ public class IncreasedAmmoPowerUp : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // Check if the power up is in the camera for the voice commands.
     void OnBecameInvisible()
     {
         isInCamera = false;

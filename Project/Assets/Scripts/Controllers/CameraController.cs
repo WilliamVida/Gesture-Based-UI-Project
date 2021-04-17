@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Class to follow the player.
 public class CameraController : MonoBehaviour
 {
 
+    // Declare variables.
     public PlayerController playerController;
     private Vector3 lastPlayerPosition;
     private float distanceToMove;

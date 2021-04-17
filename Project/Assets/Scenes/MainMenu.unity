@@ -348,8 +348,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.6011963, y: 75.802}
-  m_SizeDelta: {x: 308.88303, y: 145.36194}
+  m_AnchoredPosition: {x: 61.546997, y: -146.14}
+  m_SizeDelta: {x: 681.9767, y: 145.36194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &97367076
 MonoBehaviour:
@@ -373,12 +373,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'There are three power-ups
 
+    They can be acquired by voice or player
+    contact
+
     1. Increased ammo
 
-    2. Increased fire
-    rate
+    2. Increased fire rate
 
-    3. Increased speed'
+    3. Increased
+    speed'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1363,7 +1366,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.6012, y: -131.21}
+  m_AnchoredPosition: {x: -72.287, y: 94}
   m_SizeDelta: {x: 242.38062, y: 140.92482}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &550849750

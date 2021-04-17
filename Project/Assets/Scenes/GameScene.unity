@@ -734,7 +734,7 @@ MonoBehaviour:
   - {fileID: 3702008437661666671, guid: 26ee54db9effcbe4483993d38dc3497b, type: 3}
   - {fileID: 2735359357548157954, guid: 081e97546afe7f644894d9c8a6d5b89e, type: 3}
   - {fileID: 2739180441985613655, guid: e09e0d7647c1356419f33e7beda2b6f3, type: 3}
-  spawnRate: 12
+  spawnRate: 10
   randomPowerUp: 0
 --- !u!1 &151727807
 GameObject:

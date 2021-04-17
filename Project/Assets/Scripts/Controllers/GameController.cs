@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
+    // Declare variables.
     public PlayerController thePlayer;
     private Vector3 playerStartPoint;
     public GameObject gameOverMenu;
@@ -17,6 +18,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        // If the player does not exist then show the game over message.
         if (GameObject.FindGameObjectsWithTag("Player").Length == 0)
         {
             Time.timeScale = 0f;

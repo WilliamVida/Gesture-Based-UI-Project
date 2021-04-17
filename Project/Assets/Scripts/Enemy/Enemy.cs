@@ -5,18 +5,21 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
+    // Declare variables.
     public int maxHealth = 100;
     public int health = 100;
     public HealthBar healthBar;
     public int scorePoints;
     public GameObject deathEffect;
 
+    // Initialise.
     void Start()
     {
         health = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
 
+    // Suffer damage method.
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -29,10 +32,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Set the death sounds and destroy the game object.
+    // Destroy the game object when they die..
     void Die()
     {
-        // AudioSource.PlayClipAtPoint(deathSound, transform.position, volume);
         var effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
         GameObject.Destroy(effect, 2f);
         Destroy(gameObject);

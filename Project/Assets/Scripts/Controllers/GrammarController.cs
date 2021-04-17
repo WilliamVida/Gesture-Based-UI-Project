@@ -16,6 +16,7 @@ public class GrammarController : MonoBehaviour
     public PauseMenu pauseMenu;
     public PlayerController playerController;
 
+    // Initialise.
     void Start()
     {
         spokenPhraseText.text = "Spoken Phrase:";
@@ -23,7 +24,7 @@ public class GrammarController : MonoBehaviour
         Debug.Log("Grammar loaded!");
         gr.OnPhraseRecognized += GR_OnPhraseRecognized;
         gr.Start();
-        if (gr.IsRunning) Debug.Log("Recogniser running.");
+        if (gr.IsRunning) Debug.Log("Game grammar recogniser is running.");
     }
 
     void Update()
@@ -32,12 +33,13 @@ public class GrammarController : MonoBehaviour
         {
             // gr.Stop();
         }
-        else
+        else if (PauseMenu.gameIsPaused = false && !gr.IsRunning)
         {
-            // gr.Start();
+            gr.Start();
         }
     }
 
+    // Switch statement for the spoken phrase.
     private void PhraseRecogniser()
     {
         GameObject weaponHolder = GameObject.Find("Weapon Holder");
@@ -90,14 +92,12 @@ public class GrammarController : MonoBehaviour
             case "get extra ammunition":
             case "get the extra ammo power up":
             case "get the extra ammunition power up":
-                GameObject moreAmmoObject = GameObject.Find("Increased Ammo Power Up(Clone)");
-                IncreasedAmmoPowerUp increasedAmmoPowerUp;
-                if (moreAmmoObject != null)
+                IncreasedAmmoPowerUp increasedAmmoPowerUp = FindObjectOfType<IncreasedAmmoPowerUp>();
+                if (increasedAmmoPowerUp != null)
                 {
-                    increasedAmmoPowerUp = moreAmmoObject.GetComponent<IncreasedAmmoPowerUp>();
                     if (increasedAmmoPowerUp.isInCamera)
                     {
-                        moreAmmoObject.transform.position = new Vector2(playerController.transform.position.x, playerController.transform.position.y);
+                        increasedAmmoPowerUp.transform.position = new Vector2(playerController.transform.position.x, playerController.transform.position.y);
                     }
                 }
                 break;
@@ -107,14 +107,12 @@ public class GrammarController : MonoBehaviour
             case "get the fire rate":
             case "use the fire rate power up":
             case "get the fire rate power up":
-                GameObject fireRateObject = GameObject.Find("Increased Fire Rate Power Up(Clone)");
-                IncreasedFireRatePowerUp increasedFireRatePowerUp;
-                if (fireRateObject != null)
+                IncreasedFireRatePowerUp increasedFireRatePowerUp = FindObjectOfType<IncreasedFireRatePowerUp>();
+                if (increasedFireRatePowerUp != null)
                 {
-                    increasedFireRatePowerUp = fireRateObject.GetComponent<IncreasedFireRatePowerUp>();
                     if (increasedFireRatePowerUp.isInCamera)
                     {
-                        fireRateObject.transform.position = new Vector2(playerController.transform.position.x, playerController.transform.position.y);
+                        increasedFireRatePowerUp.transform.position = new Vector2(playerController.transform.position.x, playerController.transform.position.y);
                     }
                 }
                 break;
@@ -123,21 +121,19 @@ public class GrammarController : MonoBehaviour
             case "get more speed":
             case "use the more speed power up":
             case "get the more speed power up":
-                GameObject moreSpeedObject = GameObject.Find("Increased Speed Power Up(Clone)");
-                IncreasedSpeedPowerUp increasedSpeedPowerUp;
-                if (moreSpeedObject != null)
+                IncreasedSpeedPowerUp increasedSpeedPowerUp = FindObjectOfType<IncreasedSpeedPowerUp>();
+                if (increasedSpeedPowerUp != null)
                 {
-                    Debug.Log("test");
-                    increasedSpeedPowerUp = moreSpeedObject.GetComponent<IncreasedSpeedPowerUp>();
                     if (increasedSpeedPowerUp.isInCamera)
                     {
-                        moreSpeedObject.transform.position = new Vector2(playerController.transform.position.x, playerController.transform.position.y);
+                        increasedSpeedPowerUp.transform.position = new Vector2(playerController.transform.position.x, playerController.transform.position.y);
                     }
                 }
                 break;
         }
     }
 
+    // When a phrase is recognised.
     private void GR_OnPhraseRecognized(PhraseRecognizedEventArgs args)
     {
         StringBuilder message = new StringBuilder();

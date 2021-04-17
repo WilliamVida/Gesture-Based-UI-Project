@@ -8,6 +8,7 @@ using TMPro;
 public class Weapon : MonoBehaviour
 {
 
+    // Declare variables.
     public Transform firePoint;
     public GameObject bulletPrefab;
     public GameObject muzzleFlash;
@@ -23,6 +24,7 @@ public class Weapon : MonoBehaviour
     public TextMeshProUGUI ammoRemainingText;
     private AudioSource audioSource;
 
+    // Initialise.
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -39,23 +41,27 @@ public class Weapon : MonoBehaviour
     {
         ammoRemainingText.text = "Ammo: " + currentAmmo;
 
+        // If the weapon is reloading.
         if (isReloading)
         {
             ammoRemainingText.text = "Reloading";
             return;
         }
 
+        // Reload key.
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(Reload());
         }
 
+        // If the ammo is 0 then reload.
         if (currentAmmo <= 0)
         {
             StartCoroutine(Reload());
             return;
         }
 
+        // If the weapon can fire.
         if (Input.GetKey(KeyCode.Mouse0) && canFire)
         {
             StartCoroutine(Shoot());

@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 
+    // Declare variables.
     public GameObject enemyPrefab;
     float randomYPosition;
     Vector2 whereToSpawn;
@@ -14,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
+        // If enough time has passed then spawn.
         if (Time.time > nextSpawn)
         {
             nextSpawn = Time.time + spawnRate;

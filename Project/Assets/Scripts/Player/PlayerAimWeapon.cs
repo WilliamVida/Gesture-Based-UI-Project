@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// https://www.youtube.com/watch?v=fuGQFdhSPg4&ab_channel=CodeMonkey
+// Class that aims the weapons at the mouse position.
+// From https://www.youtube.com/watch?v=fuGQFdhSPg4&ab_channel=CodeMonkey.
 public class PlayerAimWeapon : MonoBehaviour
 {
 
+    // Declare variables.
     private Transform aimTransform;
 
+    // Initialise.
     void Update()
     {
         HandleAiming();
-        // HandleShooting();
     }
 
     private void Awake()
@@ -27,14 +29,6 @@ public class PlayerAimWeapon : MonoBehaviour
 
         aimTransform.eulerAngles = new Vector3(0, 0, angle - 11);
     }
-
-    // private void HandleShooting()
-    // {
-    //     if (Input.GetMouseButtonDown(0))
-    //     {
-
-    //     }
-    // }
 
     public static Vector3 GetMouseWorldPosition()
     {

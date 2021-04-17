@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Class for parallax effect of the background image.
 // From https://www.youtube.com/watch?v=zit45k6CUMk&ab_channel=Dani.
 public class Parallax : MonoBehaviour
 {
 
+    // Declare variables.
     private float length, startPosition;
     public GameObject cam;
     public float parallaxEffect;
 
+    // Initialise.
     void Start()
     {
         startPosition = transform.position.x;
