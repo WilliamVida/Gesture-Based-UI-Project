@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  speedMultiplier: 1.05
+  speedMultiplier: 1.02
   speedIncreaseMilestone: 50
   jumpForce: 22
   jumpTime: 0.25
@@ -734,7 +734,7 @@ MonoBehaviour:
   - {fileID: 3702008437661666671, guid: 26ee54db9effcbe4483993d38dc3497b, type: 3}
   - {fileID: 2735359357548157954, guid: 081e97546afe7f644894d9c8a6d5b89e, type: 3}
   - {fileID: 2739180441985613655, guid: e09e0d7647c1356419f33e7beda2b6f3, type: 3}
-  spawnRate: 10
+  spawnRate: 12
   randomPowerUp: 0
 --- !u!1 &151727807
 GameObject:
@@ -2070,6 +2070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 6797810883061974956}
+  gameOverUI: {fileID: 7875123248970619032}
   spokenPhraseText: {fileID: 1459599476}
   grammarController: {fileID: 1635480235}
 --- !u!1 &859050793
@@ -8004,6 +8005,7 @@ MonoBehaviour:
   spokenPhraseText: {fileID: 1459599476}
   pauseMenu: {fileID: 840983047}
   playerController: {fileID: 53014044}
+  pauseMenuUI: {fileID: 6797810883061974956}
 --- !u!1 &1638375055
 GameObject:
   m_ObjectHideFlags: 0

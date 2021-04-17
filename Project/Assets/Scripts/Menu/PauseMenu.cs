@@ -16,6 +16,7 @@ public class PauseMenu : MonoBehaviour
     // Declare variables.
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject gameOverUI;
     string mainMenuScene = "MainMenu";
     private GrammarRecognizer gr;
     private string spokenPhrase = "";
@@ -41,12 +42,10 @@ public class PauseMenu : MonoBehaviour
             if (gameIsPaused)
             {
                 Resume();
-                // gr.Stop();
             }
             else
             {
                 Pause();
-                // gr.Start();
             }
         }
     }
@@ -74,26 +73,29 @@ public class PauseMenu : MonoBehaviour
     // Switch statement for the spoken phrase.
     private void PhraseRecogniser()
     {
-        switch (spokenPhrase)
+        if (pauseMenuUI.activeInHierarchy || gameOverUI.activeInHierarchy)
         {
-            case "resume":
-            case "resume the game":
-                Resume();
-                break;
-            case "menu":
-            case "to the menu":
-            case "go to the menu":
-            case "main menu":
-            case "to the main menu":
-            case "go to the main menu":
-                LoadMenu();
-                break;
-            case "quit":
-            case "quit the game":
-            case "click the quit button":
-            case "click quit":
-                QuitGame();
-                break;
+            switch (spokenPhrase)
+            {
+                case "resume":
+                case "resume the game":
+                    Resume();
+                    break;
+                case "menu":
+                case "to the menu":
+                case "go to the menu":
+                case "main menu":
+                case "to the main menu":
+                case "go to the main menu":
+                    LoadMenu();
+                    break;
+                case "quit":
+                case "quit the game":
+                case "click the quit button":
+                case "click quit":
+                    QuitGame();
+                    break;
+            }
         }
     }
 
