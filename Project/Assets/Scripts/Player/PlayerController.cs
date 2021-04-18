@@ -12,8 +12,7 @@ public class PlayerController : MonoBehaviour
     public float speedIncreaseMilestone;
     private float speedMilestoneCount;
     public float jumpForce;
-    public float jumpTime;
-    private float jumpTimeCounter;
+    private bool canDoubleJump;
     private Rigidbody2D rb;
     public bool grounded;
     public LayerMask whatIsGround;
@@ -22,7 +21,6 @@ public class PlayerController : MonoBehaviour
     private Animator myAnimator;
     public ParticleSystem[] boosters;
     public GameController gameController;
-    private bool canDoubleJump;
 
     // Initialise.
     void Start()
@@ -30,7 +28,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         gameObject.SetActive(true);
         myAnimator = GetComponent<Animator>();
-        jumpTimeCounter = jumpTime;
         speedMilestoneCount = speedIncreaseMilestone;
     }
 
@@ -82,7 +79,6 @@ public class PlayerController : MonoBehaviour
         {
             boosters[0].Stop();
             boosters[1].Stop();
-            jumpTimeCounter = jumpTime;
         }
         else
         {

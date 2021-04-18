@@ -11,7 +11,7 @@ public class IncreasedSpeedPowerUp : MonoBehaviour
     public float duration = 10f;
     public bool isInCamera = false;
 
-    // If the power up touches the player.
+    // If the power-up touches the player.
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -40,7 +40,7 @@ public class IncreasedSpeedPowerUp : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // Check if the power up is in the camera for the voice commands.
+    // Check if the power-up is in the camera for the voice commands.
     void OnBecameInvisible()
     {
         isInCamera = false;

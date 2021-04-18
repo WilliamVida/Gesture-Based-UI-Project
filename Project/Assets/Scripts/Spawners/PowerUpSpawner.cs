@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerUpSpawner : MonoBehaviour
 {
 
+    // Declare variables.
     public GameObject[] powerUpPrefabs;
     float randomYPosition;
     Vector2 whereToSpawn;
@@ -14,6 +15,7 @@ public class PowerUpSpawner : MonoBehaviour
 
     void Update()
     {
+        // If enough time has passed then spawn a random power-up at a random y position.
         if (Time.time > nextSpawn)
         {
             nextSpawn = Time.time + spawnRate;

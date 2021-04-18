@@ -311,7 +311,6 @@ MonoBehaviour:
   speedMultiplier: 1.02
   speedIncreaseMilestone: 50
   jumpForce: 22
-  jumpTime: 0.25
   grounded: 0
   whatIsGround:
     serializedVersion: 2
@@ -2592,7 +2591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 4094318237621278065, guid: d361e7a3713860544975a23ea1692d14, type: 3}
-  spawnRate: 5
+  spawnRate: 4
 --- !u!1 &1438343863
 GameObject:
   m_ObjectHideFlags: 0

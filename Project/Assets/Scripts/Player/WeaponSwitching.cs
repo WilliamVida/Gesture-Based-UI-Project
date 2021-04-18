@@ -64,7 +64,6 @@ public class WeaponSwitching : MonoBehaviour
                 weapon.gameObject.SetActive(false);
 
             i++;
-
         }
     }
 

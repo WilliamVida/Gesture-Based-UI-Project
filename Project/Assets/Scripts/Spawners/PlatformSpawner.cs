@@ -27,6 +27,7 @@ public class PlatformSpawner : MonoBehaviour
         StartCoroutine(SpawnPlatforms());
     }
 
+    // Generate the platforms.
     private void GeneratePlatforms()
     {
         randomPlatform = Random.Range(0, platformPrefabs.Length);
@@ -49,6 +50,7 @@ public class PlatformSpawner : MonoBehaviour
         }
     }
 
+    // Spawn the platforms.
     IEnumerator SpawnPlatforms()
     {
         while (true)

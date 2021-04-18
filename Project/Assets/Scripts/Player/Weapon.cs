@@ -89,9 +89,7 @@ public class Weapon : MonoBehaviour
     public IEnumerator Reload()
     {
         isReloading = true;
-
         yield return new WaitForSeconds(reloadTime);
-
         currentAmmo = maxAmmo;
         isReloading = false;
     }
