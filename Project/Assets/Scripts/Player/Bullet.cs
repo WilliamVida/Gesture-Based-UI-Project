@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// From https://www.youtube.com/watch?v=wkKsl1Mfp5M&ab_channel=Brackeys.
+// Bullet from https://www.youtube.com/watch?v=wkKsl1Mfp5M&ab_channel=Brackeys.
 public class Bullet : MonoBehaviour
 {
 

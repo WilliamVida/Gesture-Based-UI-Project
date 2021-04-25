@@ -9,7 +9,7 @@ using UnityEngine.Windows.Speech;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-// From https://www.youtube.com/watch?v=JivuXdrIHK0&ab_channel=Brackeys.
+// Pause menu from https://www.youtube.com/watch?v=JivuXdrIHK0&ab_channel=Brackeys.
 public class PauseMenu : MonoBehaviour
 {
 
@@ -32,11 +32,11 @@ public class PauseMenu : MonoBehaviour
         gr.OnPhraseRecognized += GR_OnPhraseRecognized;
         gr.Start();
         if (gr.IsRunning) Debug.Log("Recogniser running.");
-    }
 
-    // Check if escape if pressed.
+    }
     void Update()
     {
+        // Check if escape if pressed.
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameIsPaused)

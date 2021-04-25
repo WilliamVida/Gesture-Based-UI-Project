@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// From https://www.youtube.com/watch?v=E7gmylDS1C4&ab_channel=PressStart.
-// From https://www.youtube.com/playlist?list=PLiyfvmtjWC_XmdYfXm2i1AQ3lKrEPgc9-.
+// Platform pawning from https://www.youtube.com/watch?v=E7gmylDS1C4&ab_channel=PressStart.
+// Other platformer mechanics from https://www.youtube.com/playlist?list=PLiyfvmtjWC_XmdYfXm2i1AQ3lKrEPgc9-.
 public class PlatformSpawner : MonoBehaviour
 {
 

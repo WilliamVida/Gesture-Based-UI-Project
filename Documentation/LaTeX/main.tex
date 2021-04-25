@@ -25,18 +25,18 @@ Link to the GitHub repository: \url{https://github.com/WilliamVida/Gesture-Based
 This game is a 2D endless platformer developed using Unity 2020.1.10f1. The game uses the keyboard and mouse and uses voice commands to accompany the game's mechanics. The language settings and keyboard should be set to US English and the microphone must be enabled. The game is run using a resolution of 1920x1080. In the build settings, the main menu scene is set to 0 and the game scene is set to 1. In this game, the player controls a character and must destroy enemies and avoid obstacles while also using generated platforms to collect coins to increase their score. The player loses if they collide with an enemy or an obstacle. The player's weapons are aimed at the mouse. If a valid phrase is recognised then it will be shown on screen but this is not necessarily a sign that the voice command did its intention.
 
 \section{Gestures Identified as Appropriate for This Application}
-The main menu consists of three buttons, to play the game, go to the instructions menu, quit the game and go back to the main menu from the instructions menu. Voice commands can be used to navigate through the menu along with the mouse. The phrases for the main menu voice commands are stored in MainMenuGrammar.xml. These voice commands are straight forward to use.
+The main menu consists of four buttons, to play the game, go to the instructions menu, quit the game and go back to the main menu from the instructions menu. Voice commands can be used to navigate through the menu along with the mouse. The phrases for the main menu voice commands are stored in MainMenuGrammar.xml. These voice commands are straight forward to use.
 
-The pause menu consists of three buttons, to resume the game, go to the main menu and quit the game. The pause menu can be accessed by clicking the escape key on the keyboard or by saying a variation of "pause" while the game is playing. The pause menu buttons can be clicked by using a mouse or they can be used by using voice commands. The phrases for the pause menu are stored in PauseMenuGrammar.xml. The voice command to access the pause menu is contained in GameGrammar.xml which is for the game voice commands. These voice commands are straight forward to use.
+The pause menu consists of three buttons, to resume the game, go to the main menu and quit the game. The pause menu can be accessed by clicking the escape key on the keyboard or saying a variation of "pause" while playing. The pause menu buttons can be clicked by using a mouse or they can be used by using voice commands. The phrases for the pause menu are stored in PauseMenuGrammar.xml. The voice command to access the pause menu is contained in GameGrammar.xml which is for the game voice commands. These voice commands are straight forward to use.
 
-The phrases for the main game are stored in GameGrammar.xml. The game allows the player to use voice commands to switch between any of the two weapons available. The option to reload can also be done using voice commands. These voice commands are straight forward to use. The two actions can also be done using the mouse and keyboard. The game contains temporary power-ups and they can be acquired by moving the player in their path or by saying a variation of the power-up while it is on screen. This was done to make it easier for the player as there may be unable to acquire them as there might be objects in the way.
+The phrases for the main game are stored in GameGrammar.xml. The game allows the player to use voice commands to switch between any of the two weapons available. The option to reload can also be done using voice commands. These voice commands are straight forward to use. The two actions can also be done using the mouse and keyboard. The game contains power-ups that give temporary effects. They can be acquired by colliding the player with them or by saying a variation of the power-up while it is on screen. This was done to make it easier for the player as there may be unable to acquire them as there might be objects in the way.
 
 \section{Hardware Used in Creating the Application}
 I did not have any access to any special type of hardware such as a Kinect so I used voice commands from Unity using a microphone from my laptop. I had ideas for games to develop using other hardware but I had to settle for using my laptop's microphone.
 
 \section{Architecture for the Solution}
 \subsection{Main Menu Phrases}
-The main menu grammar phrases are recognised in MainMenu.cs which is attached to a canvas. If the method GR\_OnPhraseRecognized(PhraseRecognizedEventArgs args) recognises a valid phrase then the method PhraseRecogniser() will be called. PhraseRecogniser() contains a switch statement which calls a method depending on the phrase said. The user can use the main menu buttons with a mouse or by using voice commands. The voice commands feel natural in this context and do not need much explanation. The code in PhraseRecogniser() is shown below.
+The main menu grammar phrases are recognised in MainMenu.cs which is attached to a canvas. If the method GR\_OnPhraseRecognized() recognises a valid phrase then the method PhraseRecogniser() will be called. PhraseRecogniser() contains a switch statement which calls a method depending on the phrase said. The user can use the main menu buttons with a mouse or by using voice commands. The voice commands feel natural in this context and do not need much explanation. The code in PhraseRecogniser() is shown below.
 \begin{minted}[breaklines]{csharp}
 private void PhraseRecogniser()
 {
@@ -120,7 +120,7 @@ The phrases for the main menu voice commands are stored in MainMenuGrammar.xml a
 \end{minted}
 
 \subsection{Pause Menu Phrases}
-The pause menu grammar phrases are recognised in PauseMenu.cs which is attached to a canvas. If the method GR\_OnPhraseRecognized(PhraseRecognizedEventArgs args) recognises a valid phrase then the method PhraseRecogniser() will be called. PhraseRecogniser() contains a switch statement which calls a method depending on the phrase said. The user can use the pause menu buttons with a mouse or by using voice commands. The voice commands feel natural in this context and do not need much explanation. To avoid an issue where the main game voice commands can be used while the game is paused an if statement is declared to check if the pause menu is active. The code in PhraseRecogniser() is shown below.
+The pause menu grammar phrases are recognised in PauseMenu.cs which is attached to a canvas. If the method GR\_OnPhraseRecognized() recognises a valid phrase then the method PhraseRecogniser() will be called. PhraseRecogniser() contains a switch statement which calls a method depending on the phrase said. The user can use the pause menu buttons with a mouse or by using voice commands. The voice commands feel natural in this context and do not need much explanation. To avoid an issue where the main game voice commands can be used while the game is paused an if statement is declared to check if the pause menu is active. The code in PhraseRecogniser() is shown below.
 \begin{minted}[breaklines]{csharp}
 private void PhraseRecogniser()
 {
@@ -182,7 +182,7 @@ The phrases for the pause menu voice commands are stored in PauseMenuGrammar.xml
 \end{minted}
 
 \subsection{Main Game Phrases}
-The main game grammar phrases are recognised in GrammarController.cs which is attached to an object called "Game Controller". If the method GR\_OnPhraseRecognized(PhraseRecognizedEventArgs args) recognises a valid phrase then the method PhraseRecogniser() will be called. PhraseRecogniser() contains a switch statement which calls a method depending on the phrase said. The user can pause, change weapons and reload with either the keyboard, mouse or by using voice commands. Power-ups can be acquired by the player when the power-ups are visible in the main camera. If a valid phrase linked to the power-up is said then it attempts to find that object. If it is found and it is in the camera then the power-up effect is applied to the player. GrammarController.cs is attached to a game controller object. The code in PhraseRecogniser() is shown below.
+The main game grammar phrases are recognised in GrammarController.cs which is attached to an object called "Game Controller" in the game scene. If the method GR\_OnPhraseRecognized() recognises a valid phrase then the method PhraseRecogniser() will be called. PhraseRecogniser() contains a switch statement which calls a method depending on the phrase said. The user can pause, change weapons and reload with either the keyboard, mouse or by using voice commands. Power-ups can be acquired by the player when the power-ups are visible in the main camera. If a valid phrase linked to the power-up is said then it attempts to find that object. If it is found and it is in the camera then the power-up effect is applied to the player. GrammarController.cs is attached to a game controller object. The code in PhraseRecogniser() is shown below.
 \begin{minted}[breaklines]{csharp}
 private void PhraseRecogniser()
 {
@@ -278,7 +278,7 @@ private void PhraseRecogniser()
                 break;
         }
     }
-}
+}h
 \end{minted}
 
 The phrases for the main game voice commands are stored in GameGrammar.xml and the phrases are shown below.
@@ -393,20 +393,18 @@ There are three different power-ups each with its own script.
 \end{itemize}
 
 \section{Issues}
-When changing weapons by voice and changing weapons by using the keyboard or mouse, sometimes one or both of them are unable to be fired. As the player goes faster, it becomes harder to acquire power-ups by voice as there is a delay by Unity when it recognises voice commands. The weapon aiming at the mouse is at some degrees when aiming at certain angles.
+When changing weapons by voice and changing weapons using the keyboard or mouse, sometimes one or both weapons are unable to be fired. As the player goes faster, it becomes harder to acquire power-ups by voice as there is a delay by Unity when it recognises voice commands. This means that the power-up is already off-screen by the time the voice command is recognised by the game. Hence, the effects of the power-up are not used. The weapon aiming at the mouse is off by a few degrees at certain aiming angles.
 
 \section{Conclusions \& Recommendations}
-Overall I enjoyed making this game. This is the second game that I have developed using voice commands and I did not meaningfully improve my knowledge of this feature. However, this game was also the first platformer that I have worked on and I gained valuable knowledge in this regard and I am happy that I finally made one albeit using voice commands. I would have liked to use other hardware rather than just the microphone and the Unity voice recogniser to challenge myself and develop a truly unique game. As this was a 2D platformer, I struggled to find voice commands that could be implemented in the game. This makes the voice commands rather generic. If I could do this project again I would much prefer to use another piece of hardware rather than using Unity's voice recogniser.
+Overall I enjoyed making this game. This is the second game that I have developed using voice commands and I did not meaningfully improve my knowledge of this feature. However, this game was also the first platformer that I have worked on and I gained valuable knowledge in this regard and I am happy that I finally made one albeit using voice commands. I would have liked to use other hardware rather than just the microphone and the Unity voice recogniser to challenge myself and develop a truly unique game. As this was a 2D platformer, I struggled to find voice commands that could be implemented in the game. This makes the voice commands rather generic. If I could do this project again, I would prefer to use another piece of hardware rather than using Unity's voice recogniser.
 
 \section{References}
-Every time I used code from another website, the link to the website is placed in its respective script. The full list of references is below.
+Every time I used code from another website, the link to the website is placed in its respective script. Two asset packages were used from the Unity Asset Store. The full list of references is below.
 
-Two asset packages were used from the Unity Asset Store.
-
-Free 2D Mega Pack
+Free 2D Mega Pack (Asset)
 \url{https://assetstore.unity.com/packages/2d/free-2d-mega-pack-177430}.
 
-Post Apocalypse Guns Demo \url{https://assetstore.unity.com/packages/audio/sound-fx/weapons/post-apocalypse-guns-demo-33515}.
+Post Apocalypse Guns Demo (Asset) \url{https://assetstore.unity.com/packages/audio/sound-fx/weapons/post-apocalypse-guns-demo-33515}.
 
 The power-up sprites were taken from \url{https://callofduty.fandom.com/wiki/Perks}.
 

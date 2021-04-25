@@ -40,6 +40,7 @@ public class GrammarController : MonoBehaviour
     // Switch statement for the spoken phrase.
     private void PhraseRecogniser()
     {
+        // Only use the pause menu voice commands when the pause menu is active.
         if (!pauseMenuUI.activeInHierarchy)
         {
             GameObject weaponHolder = GameObject.Find("Weapon Holder");

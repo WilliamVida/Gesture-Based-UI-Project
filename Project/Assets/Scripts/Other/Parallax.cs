@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Class for parallax effect of the background image.
-// From https://www.youtube.com/watch?v=zit45k6CUMk&ab_channel=Dani.
+// Parallax effect from https://www.youtube.com/watch?v=zit45k6CUMk&ab_channel=Dani.
 public class Parallax : MonoBehaviour
 {
 

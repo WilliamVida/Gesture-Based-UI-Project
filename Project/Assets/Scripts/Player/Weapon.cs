@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-// From https://www.youtube.com/watch?v=wkKsl1Mfp5M&ab_channel=Brackeys.
+// Weapon from https://www.youtube.com/watch?v=wkKsl1Mfp5M&ab_channel=Brackeys.
 public class Weapon : MonoBehaviour
 {
 

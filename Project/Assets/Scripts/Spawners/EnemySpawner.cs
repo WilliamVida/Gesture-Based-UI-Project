@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// From https://www.youtube.com/watch?v=AI8XNNRpTTw&ab_channel=AlexanderZotov.
+// Enemy spawner from https://www.youtube.com/watch?v=AI8XNNRpTTw&ab_channel=AlexanderZotov.
 public class EnemySpawner : MonoBehaviour
 {
 

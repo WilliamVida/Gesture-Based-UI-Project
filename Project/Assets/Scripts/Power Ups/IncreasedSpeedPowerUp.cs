@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// From https://www.youtube.com/watch?v=CLSiRf_OrBk&ab_channel=Brackeys.
+// Power-up from https://www.youtube.com/watch?v=CLSiRf_OrBk&ab_channel=Brackeys.
 public class IncreasedSpeedPowerUp : MonoBehaviour
 {
 

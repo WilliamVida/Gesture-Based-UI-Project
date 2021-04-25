@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// From https://www.youtube.com/watch?v=BLfNP4Sc_iA&ab_channel=Brackeys.
+// Health bar from https://www.youtube.com/watch?v=BLfNP4Sc_iA&ab_channel=Brackeys.
 public class HealthBar : MonoBehaviour
 {
 

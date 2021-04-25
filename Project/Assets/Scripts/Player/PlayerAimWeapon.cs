@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Class that aims the current weapon at the mouse position.
-// From https://www.youtube.com/watch?v=fuGQFdhSPg4&ab_channel=CodeMonkey.
+// Mouse aiming from https://www.youtube.com/watch?v=fuGQFdhSPg4&ab_channel=CodeMonkey.
 public class PlayerAimWeapon : MonoBehaviour
 {
 
